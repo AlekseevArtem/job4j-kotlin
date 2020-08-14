@@ -2,20 +2,20 @@ package ru.job4j.oop
 
 import java.util.*
 
-class Tracker {
+internal class Tracker {
     private val items: MutableList<Item> = ArrayList()
 
-    fun add(item: Item): Item {
+    internal fun add(item: Item): Item {
         item.id = (generateId())
         items.add(item)
         return item
     }
 
-    fun findAll(): List<Item> {
+    internal fun findAll(): List<Item> {
         return items
     }
 
-    fun replace(id: String, newItem: Item): Boolean {
+    internal fun replace(id: String, newItem: Item): Boolean {
         val index = indexOf(id)
         newItem.id = (items[index].id)
         if (index != -1) {
@@ -25,7 +25,7 @@ class Tracker {
         return false
     }
 
-    fun delete(id: String): Boolean {
+    internal fun delete(id: String): Boolean {
         return items.remove(findById(id))
     }
 
@@ -36,7 +36,7 @@ class Tracker {
         return -1
     }
 
-    fun findByName(key: String): List<Item> {
+    internal fun findByName(key: String): List<Item> {
         val itemsWithSameName: MutableList<Item> = ArrayList()
         for (item in items) {
             if (item.name == key) {
@@ -46,7 +46,7 @@ class Tracker {
         return itemsWithSameName
     }
 
-    fun findById(id: String): Item? {
+    internal fun findById(id: String): Item? {
         val index = indexOf(id)
         return if (index < 0) null else items[index]
     }

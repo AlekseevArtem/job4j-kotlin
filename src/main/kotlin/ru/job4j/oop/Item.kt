@@ -1,4 +1,3 @@
 package ru.job4j.oop
 
-data class Item(var name: String = "", var id: String = "") {
-}
+internal data class Item(internal var name: String = "",internal var id: String = "")
