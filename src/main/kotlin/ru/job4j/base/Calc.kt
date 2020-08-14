@@ -18,9 +18,7 @@ fun multiply(first : Int, second : Int) : Int {
 
 fun max(first: Int, second: Int) = if (first > second) first else second
 
-fun max(first: Int, second: Int, third: Int) = if (first > second) if (first > third) first else third else if (second > third) second else third
-
-//fun max(first: Int, second: Int, third: Int) = if (max(first,second) > third) max(first,second) else third
+fun max(first: Int, second: Int, third: Int) = if (max(first,second) > third) max(first,second) else third
 
 fun main() {
     val plus = add(1, 1)

@@ -24,7 +24,7 @@ class CalcTest : StringSpec({
         max(1, 2) shouldBe 2
     }
 
-    "max from 5 and 4 is 3" {
+    "max from 5, 4 and 3 is 5" {
         max(5, 4, 3) shouldBe 5
     }
 })
