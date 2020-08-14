@@ -6,7 +6,7 @@ class Tracker {
     private val items: MutableList<Item> = ArrayList()
 
     fun add(item: Item): Item {
-        item.setId(generateId())
+        item.id = (generateId())
         items.add(item)
         return item
     }
@@ -17,7 +17,7 @@ class Tracker {
 
     fun replace(id: String, newItem: Item): Boolean {
         val index = indexOf(id)
-        newItem.setId(items[index].getId())
+        newItem.id = (items[index].id)
         if (index != -1) {
             items[index] = newItem
             return true
@@ -31,7 +31,7 @@ class Tracker {
 
     private fun indexOf(id: String): Int {
         for (item in items) {
-            if (item.getId() == id) return items.indexOf(item)
+            if (item.id == id) return items.indexOf(item)
         }
         return -1
     }
@@ -39,7 +39,7 @@ class Tracker {
     fun findByName(key: String): List<Item> {
         val itemsWithSameName: MutableList<Item> = ArrayList()
         for (item in items) {
-            if (item.getName() == key) {
+            if (item.name == key) {
                 itemsWithSameName.add(item)
             }
         }
