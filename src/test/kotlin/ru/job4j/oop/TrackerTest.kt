@@ -8,8 +8,8 @@ class TrackerTest : StringSpec({
         val tracker = Tracker()
         val item = Item("test1")
         tracker.add(item)
-        val result = tracker.findById(item.id!!)
-        result!!.name shouldBe item.name
+        val result = tracker.findById(item.getId())
+        result!!.getName() shouldBe item.getName()
     }
 
 
@@ -43,17 +43,17 @@ class TrackerTest : StringSpec({
         val tracker = Tracker()
         val bug = Item("Bug")
         tracker.add(bug)
-        val id: String = bug.id!!
+        val id: String = bug.getId()
         val bugWithDesc = Item("Bug with description")
         tracker.replace(id, bugWithDesc)
-        tracker.findById(id)!!.name shouldBe "Bug with description"
+        tracker.findById(id)!!.getName() shouldBe "Bug with description"
     }
 
     "Delete" {
         val tracker = Tracker()
         val bug = Item("Bug")
         tracker.add(bug)
-        val id: String = bug.id!!
+        val id: String = bug.getId()
         tracker.delete(id)
         tracker.findById(id) shouldBe null
     }
