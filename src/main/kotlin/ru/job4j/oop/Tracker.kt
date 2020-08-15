@@ -5,17 +5,17 @@ import java.util.*
 internal class Tracker {
     private val items: MutableList<Item> = ArrayList()
 
-    internal fun add(item: Item): Item {
+    fun add(item: Item): Item {
         item.id = (generateId())
         items.add(item)
         return item
     }
 
-    internal fun findAll(): List<Item> {
+    fun findAll(): List<Item> {
         return items
     }
 
-    internal fun replace(id: String, newItem: Item): Boolean {
+    fun replace(id: String, newItem: Item): Boolean {
         val index = indexOf(id)
         newItem.id = (items[index].id)
         if (index != -1) {
@@ -25,7 +25,7 @@ internal class Tracker {
         return false
     }
 
-    internal fun delete(id: String): Boolean {
+    fun delete(id: String): Boolean {
         return items.remove(findById(id))
     }
 
@@ -36,7 +36,7 @@ internal class Tracker {
         return -1
     }
 
-    internal fun findByName(key: String): List<Item> {
+    fun findByName(key: String): List<Item> {
         val itemsWithSameName: MutableList<Item> = ArrayList()
         for (item in items) {
             if (item.name == key) {
@@ -46,7 +46,7 @@ internal class Tracker {
         return itemsWithSameName
     }
 
-    internal fun findById(id: String): Item? {
+    fun findById(id: String): Item? {
         val index = indexOf(id)
         return if (index < 0) null else items[index]
     }
