@@ -10,7 +10,7 @@ object StartUI {
                 }
                 1 -> {
                     val all: List<Item> = tracker.findAll()
-                    all.forEach{
+                    all.forEach {
                         println(it)
                     }
                 }

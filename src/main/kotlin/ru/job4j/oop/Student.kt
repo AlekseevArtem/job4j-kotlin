@@ -14,7 +14,7 @@ class Student {
         this.surname = surname
     }
 
-    constructor(name: String, surname: String, phone: String) : this(name,surname) {
+    constructor(name: String, surname: String, phone: String) : this(name, surname) {
         this.phone = phone
     }
 

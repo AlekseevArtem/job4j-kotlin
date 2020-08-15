@@ -1,24 +1,24 @@
 package ru.job4j.base
 
-fun add(first : Int, second : Int) : Int {
+fun add(first: Int, second: Int): Int {
     return first + second
 }
 
-fun subtract(first : Int, second : Int) : Int {
+fun subtract(first: Int, second: Int): Int {
     return first - second
 }
 
-fun div(first : Int, second : Int) : Int {
+fun div(first: Int, second: Int): Int {
     return first / second
 }
 
-fun multiply(first : Int, second : Int) : Int {
+fun multiply(first: Int, second: Int): Int {
     return first * second
 }
 
 fun max(first: Int, second: Int) = if (first > second) first else second
 
-fun max(first: Int, second: Int, third: Int) = if (max(first,second) > third) max(first,second) else third
+fun max(first: Int, second: Int, third: Int) = if (max(first, second) > third) max(first, second) else third
 
 fun main() {
     val plus = add(1, 1)
