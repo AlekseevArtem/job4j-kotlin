@@ -2,7 +2,7 @@ package ru.job4j.oop
 
 import java.util.*
 
-internal class Tracker {
+class Tracker {
     private val items: MutableList<Item> = ArrayList()
 
     fun add(item: Item): Item {
