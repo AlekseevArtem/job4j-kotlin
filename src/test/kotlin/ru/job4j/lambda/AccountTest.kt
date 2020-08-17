@@ -10,7 +10,7 @@ class AccountTest : StringSpec({
             Account("Ivan", 200),
             Account("Sergey")
         )
-        result = Account.Filter.onlyIvan(result)
+        result = onlyIvan(result)
         val expected = listOf(Account("Ivan", 200))
         result shouldBe expected
     }
@@ -21,7 +21,7 @@ class AccountTest : StringSpec({
             Account("Ivan", 200),
             Account("Sergey")
         )
-        result = Account.Filter.haveMoney(result)
+        result = haveMoney(result)
         val expected = listOf(
             Account("Artem", 100),
             Account("Ivan", 200)
@@ -36,7 +36,7 @@ class AccountTest : StringSpec({
             Account("Ivan"),
             Account("Sergey")
         )
-        result = Account.Filter.haveMoney(Account.Filter.onlyIvan(result))
+        result = haveMoney(onlyIvan(result))
         val expected = listOf(
             Account("Ivan", 200)
         )
