@@ -1,25 +1,25 @@
 package ru.job4j.oop
 
-class StartUI private constructor() {
-    companion object {
-        fun add(tracker: Tracker) {
-            println(tracker.add(Item("name")))
-        }
+class StartUI : Action {
+    private val tracker = Tracker()
 
-        fun all(tracker: Tracker) {
-            val all: List<Item> = tracker.findAll()
-            all.forEach {
-                println(it)
-            }
-        }
+    override fun add() {
+        println(tracker.add(Item("name")))
+    }
 
-        fun exit(tracker: Tracker) {
+    override fun all() {
+        val all: List<Item> = tracker.findAll()
+        all.forEach {
+            println(it)
         }
+    }
+
+    override fun exit() {
     }
 }
 
 fun main() {
-    val tracker = Tracker()
-    StartUI.add(tracker)
-    StartUI.all(tracker)
+    val startUI = StartUI()
+    startUI.add()
+    startUI.all()
 }
