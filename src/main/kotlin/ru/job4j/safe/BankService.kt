@@ -6,16 +6,14 @@ class BankService {
     fun addUser(user: User) = users.putIfAbsent(user, mutableListOf())
 
     fun findByRequisite(passport: String, requisite: String): Account? {
-        users[findByPassport(passport)]?.forEach { if (it.requisite == requisite) return it }
-        return null
+        return users[findByPassport(passport)]?.find { it.requisite == requisite }
     }
 
     fun addAccount(passport: String, account: Account) =
         users[findByPassport(passport)]?.add(account)
 
     fun findByPassport(passport: String): User? {
-        users.keys.forEach { if (it.passport == passport) return it }
-        return null
+        return users.keys.find { it.passport == passport }
     }
 
     fun transferMoney(srcPassport: String, srcRequisite: String,
