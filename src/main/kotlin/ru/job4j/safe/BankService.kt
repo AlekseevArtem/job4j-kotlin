@@ -5,27 +5,27 @@ class BankService {
 
     fun addUser(user: User) = users.putIfAbsent(user, mutableListOf())
 
-    fun findByRequisite(passport: String, requisite: String): Account? {
-        return users[findByPassport(passport)]?.find { it.requisite == requisite }
-    }
+    fun findByRequisite(passport: String, requisite: String): Account? =
+        users[findByPassport(passport)]?.find { it.requisite == requisite }
 
-    fun addAccount(passport: String, account: Account) =
-        users[findByPassport(passport)]?.add(account)
+    fun addAccount(passport: String, account: Account): Boolean =
+        users[findByPassport(passport)]?.add(account) ?: false
 
-    fun findByPassport(passport: String): User? {
-        return users.keys.find { it.passport == passport }
-    }
+    fun findByPassport(passport: String): User? =
+        users.keys.find { it.passport == passport }
 
-    fun transferMoney(srcPassport: String, srcRequisite: String,
+    fun transferMoney(
+        srcPassport: String, srcRequisite: String,
         destPassport: String, descRequisite: String, amount: Double
     ): Boolean {
         val source = findByRequisite(srcPassport, srcRequisite)
         val destination = findByRequisite(destPassport, descRequisite)
-        return if (source != null && destination != null) {
-            source.balance -= amount
-            destination.balance += amount
-            true
-        } else false
+        val rsl = source != null && destination != null && source.balance > amount
+        if (rsl) {
+            source!!.balance -= amount
+            destination!!.balance += amount
+        }
+        return rsl
     }
 
 }
